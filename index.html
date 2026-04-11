@@ -9,125 +9,83 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #071426;
-    --bg-deep: #050e1c;
-    --surface: #0f233b;
-    --surface-2: #13304f;
-    --surface-soft: rgba(18, 46, 75, 0.7);
-    --border: rgba(158, 204, 255, 0.2);
-    --text: #edf6ff;
-    --muted: #9db4cc;
-    --accent: #ff6b35;
-    --accent-soft: rgba(255, 107, 53, 0.16);
-    --accent-cool: #35d0ff;
-    --green: #2dd4bf;
-    --adobe-red: #fa0f00;
-    --danger: #e8423f;
+    --bg-light: #f4f7fb;
+    --hero-bg: #111827; 
+    --hero-bg-deep: #0f172a;
+    --card-bg: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+    --accent-purple: #5b51d8;
+    --accent-purple-light: #eaebfa;
+    --adobe-red: #ea0a0a;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background:
-      radial-gradient(circle at 12% -10%, rgba(53, 208, 255, 0.18), transparent 44%),
-      radial-gradient(circle at 88% 2%, rgba(255, 107, 53, 0.2), transparent 42%),
-      linear-gradient(160deg, var(--bg) 0%, #091a30 52%, var(--bg-deep) 100%);
-    color: var(--text);
+    background: var(--bg-light);
+    color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
   }
 
+  /* TOP BADGES & HERO are dark theme */
   .top-badges {
     display: flex;
     justify-content: center;
     gap: 10px;
     padding: 14px 20px;
-    background: rgba(5, 14, 28, 0.86);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(8px);
+    background: #0f1524;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     flex-wrap: wrap;
     position: sticky;
     top: 0;
     z-index: 20;
   }
-
   .badge {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    text-transform: uppercase;
-    padding: 6px 12px;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 4px 10px;
     border-radius: 999px;
-    border: 1px solid;
   }
-  .badge-adobe { color: #ff9f84; border-color: rgba(250, 15, 0, 0.45); background: rgba(250, 15, 0, 0.12); }
-  .badge-green { color: #90f7dd; border-color: rgba(45, 212, 191, 0.45); background: rgba(45, 212, 191, 0.12); }
-  .badge-purple { color: #aee9ff; border-color: rgba(53, 208, 255, 0.45); background: rgba(53, 208, 255, 0.12); }
+  .badge-adobe { background: rgba(255,255,255,0.1); color: #fff; }
+  .badge-green { background: #064e3b; color: #34d399; border: 1px solid #059669; }
+  .badge-purple { border: 1px solid #b45309; color: #f59e0b; }
 
   .hero {
-    padding: 72px 20px 60px;
+    padding: 48px 20px 40px;
     text-align: center;
+    background: #111424;
     position: relative;
     overflow: hidden;
-    isolation: isolate;
   }
-  .hero::before,
-  .hero::after {
-    content: '';
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.45;
-    z-index: -1;
-    animation: drift 9s ease-in-out infinite alternate;
-  }
-  .hero::before { background: rgba(255, 107, 53, 0.42); top: -180px; left: -120px; }
-  .hero::after { background: rgba(53, 208, 255, 0.38); bottom: -220px; right: -140px; animation-delay: 1s; }
-
   .hero-brand {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 2.4px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--accent-cool);
-    margin-bottom: 16px;
+    color: #818cf8;
+    margin-bottom: 12px;
   }
-
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(30px, 5vw, 56px);
+    font-size: 28px;
     font-weight: 700;
-    line-height: 1.08;
-    margin-bottom: 16px;
-    color: #fff;
-    text-shadow: 0 2px 24px rgba(4, 12, 28, 0.55);
+    line-height: 1.15;
+    margin-bottom: 12px;
+    color: #ffffff;
   }
-  .hero-title .adobe-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(145deg, #ff2a1a 0%, #d70600 100%);
-    color: #fff;
-    font-size: .55em;
-    font-weight: 700;
-    padding: 6px 10px;
-    border-radius: 8px;
-    vertical-align: middle;
-    margin-right: 4px;
-    letter-spacing: .5px;
-    box-shadow: 0 10px 24px rgba(215, 6, 0, 0.35);
+  .hero-title .highlight {
+    color: #818cf8;
   }
-  .hero-title .adobe-logo svg { width: 18px; height: 18px; }
-
   .hero-sub {
-    color: #c4d7eb;
-    font-size: 15px;
-    max-width: 620px;
-    margin: 0 auto 32px;
+    color: #94a3b8;
+    font-size: 13px;
+    max-width: 600px;
+    margin: 0 auto 24px;
   }
 
   .stats-row {
@@ -135,370 +93,284 @@
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .stat-box {
-    background: rgba(10, 26, 44, 0.62);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 16px 22px;
-    min-width: 118px;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 12px 18px;
+    min-width: 100px;
     text-align: center;
-    backdrop-filter: blur(6px);
   }
   .stat-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
     color: #fff;
     line-height: 1;
   }
-  .stat-lbl { font-size: 11px; color: #b9d0e5; margin-top: 4px; }
+  .stat-lbl { font-size: 10px; color: #94a3b8; margin-top: 4px; }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: linear-gradient(140deg, #ff844f 0%, var(--accent) 55%, #de4e1d 100%);
+    justify-content: center;
+    background: var(--accent-purple);
     color: #fff;
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 14px 32px;
-    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
     text-decoration: none;
     transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.36);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(255, 107, 53, 0.46); }
+  .btn-primary:hover { box-shadow: 0 4px 14px rgba(91, 81, 216, 0.4); }
 
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #c2d8ec;
-    font-size: 13px;
+    color: #94a3b8;
+    font-size: 11px;
     text-decoration: none;
-    margin-left: 16px;
-    border-bottom: 1px solid rgba(194, 216, 236, 0.5);
-    transition: color .2s;
+    margin-left: 12px;
   }
-  .btn-secondary:hover { color: #fff; }
 
   .phase-tabs {
-    background: rgba(5, 14, 28, 0.78);
-    border-top: 1px solid rgba(158, 204, 255, 0.1);
-    border-bottom: 1px solid rgba(158, 204, 255, 0.2);
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
     padding: 0 20px;
     display: flex;
     justify-content: center;
-    gap: 0;
+    gap: 60px;
     overflow-x: auto;
-    backdrop-filter: blur(8px);
   }
   .phase-tab {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px 36px;
-    border-bottom: 2px solid transparent;
-    color: #a6bfd6;
-    font-size: 13px;
+    padding: 12px 0;
+    color: #94a3b8;
+    font-size: 11px;
     font-weight: 500;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
   }
-  .phase-tab.active { border-color: var(--accent); color: #fff; background: rgba(255, 107, 53, 0.07); }
   .phase-tab .phase-num {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #ffd5c5;
+    color: #38bdf8;
     margin-bottom: 2px;
   }
 
-  .section { padding: 48px 20px; max-width: 980px; margin: 0 auto; }
-  .section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 18px;
-  }
+  .section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
 
   .alert-banner {
-    background: linear-gradient(100deg, rgba(255, 107, 53, 0.18), rgba(45, 212, 191, 0.15));
-    border: 1px solid rgba(255, 183, 155, 0.36);
-    border-radius: 12px;
+    background: #fffdf0;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
     padding: 12px 18px;
     font-size: 13px;
-    color: #ffe1d4;
+    color: #b45309;
     margin-bottom: 34px;
-    box-shadow: 0 8px 24px rgba(3, 10, 20, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  .alert-banner .dot {
+    width: 6px; height: 6px; background: #fbbf24; border-radius: 50%;
   }
 
+  /* Inclusions Wrapper */
+  .inclusions-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .inclusions-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .inclusions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
   }
   .inclusion-card {
-    background: linear-gradient(160deg, rgba(19, 48, 79, 0.92), rgba(13, 35, 58, 0.94));
-    border: 1px solid rgba(158, 204, 255, 0.2);
-    border-radius: 14px;
-    padding: 16px 18px;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    transition: transform .2s, border-color .2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
   }
-  .inclusion-card:hover { border-color: rgba(53, 208, 255, 0.5); transform: translateY(-2px); }
-  .inclusion-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-  .inclusion-title { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 3px; }
-  .inclusion-desc { font-size: 12px; color: #b5c9de; line-height: 1.5; }
-
-  .fee-note {
-    text-align: center;
-    font-size: 13px;
-    color: #bdd0e4;
-    padding: 12px;
-    border: 1px dashed rgba(158, 204, 255, 0.3);
-    border-radius: 10px;
-    margin-top: 8px;
-    background: rgba(8, 24, 42, 0.35);
-  }
-  .fee-note a { color: #ffd7ca; text-decoration: none; border-bottom: 1px solid rgba(255, 215, 202, 0.5); }
-
-  .proof-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin: 18px 0 34px;
-  }
-  .proof-card {
-    background: linear-gradient(160deg, rgba(17, 42, 69, 0.95), rgba(10, 30, 50, 0.95));
-    border: 1px solid rgba(158, 204, 255, 0.18);
-    border-radius: 12px;
-    padding: 14px;
-  }
-  .proof-card h5 {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 4px;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-  .proof-card p {
-    font-size: 12px;
-    color: #acc5dd;
-  }
+  .inclusion-icon { font-size: 18px; margin-top: 2px; }
+  .inclusion-info .title { font-weight: 700; font-size: 12px; color: var(--text-dark); margin-bottom: 4px; }
+  .inclusion-info .desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
 
   .info-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .info-card {
-    background: linear-gradient(150deg, rgba(17, 42, 69, 0.92), rgba(10, 30, 50, 0.92));
-    border: 1px solid rgba(158, 204, 255, 0.2);
-    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
   }
   .info-card h4 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.6px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--accent-cool);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
-  .info-card p { font-size: 13px; color: #d6e6f6; line-height: 1.6; }
-  .info-card a { color: #ffd8c9; text-decoration: none; }
+  .text-green { color: #059669; }
+  .text-blue { color: #2563eb; }
+  .info-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .info-card strong { color: var(--text-dark); }
+  .info-card a { color: #2563eb; text-decoration: none; font-weight: 500; }
 
-  .logos-section {
-    background: linear-gradient(155deg, rgba(12, 33, 55, 0.95), rgba(7, 23, 40, 0.95));
-    border: 1px solid rgba(255, 154, 122, 0.35);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 40px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
-  }
-  .logos-heading {
-    text-align: center;
-    font-weight: 700;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 20px;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: .4px;
-  }
-  .partners-image {
-    width: 100%;
-    max-width: 1060px;
-    display: block;
-    margin: 0 auto;
+  /* STEPS */
+  .form-step {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
     border-radius: 12px;
-    border: 1px solid rgba(158, 204, 255, 0.25);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
   }
-
-  .form-wrapper {
-    background: linear-gradient(155deg, rgba(17, 42, 69, 0.96), rgba(9, 25, 42, 0.96));
-    border: 1px solid rgba(158, 204, 255, 0.25);
-    border-radius: 18px;
-    padding: 34px;
-    margin-bottom: 40px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
-  }
-  .form-step-label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffbb9f;
-    margin-bottom: 16px;
+  .step-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    margin-bottom: 20px;
   }
-  .form-step-label::after {
-    content: '';
+  .step-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+  }
+  .step-line {
     flex: 1;
     height: 1px;
-    background: rgba(158, 204, 255, 0.22);
+    background: #e2e8f0;
   }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-grid.full { grid-template-columns: 1fr; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
-  .form-group label { font-size: 12px; font-weight: 600; color: #bed1e5; }
-  .form-group label span.req { color: var(--danger); }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 12px; font-weight: 700; color: #334155; }
+  .form-group label span.req { color: var(--adobe-red); }
   .form-control {
-    background: rgba(9, 25, 42, 0.75);
-    border: 1px solid rgba(158, 204, 255, 0.25);
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: #fff;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: var(--text-dark);
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
-    transition: border-color .2s, background .2s;
+    transition: border-color .2s;
     width: 100%;
   }
-  .form-control::placeholder { color: rgba(172, 197, 221, 0.65); }
+  .form-control::placeholder { color: #94a3b8; }
   .form-control:focus {
-    border-color: rgba(255, 107, 53, 0.7);
-    background: rgba(14, 33, 53, 0.95);
-    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.14);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px var(--accent-purple-light);
   }
   select.form-control { cursor: pointer; }
-  select.form-control option { background: #143353; color: #fff; }
-
+  
   .checkbox-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 9px;
-    margin-bottom: 4px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
   }
   .checkbox-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(10, 28, 45, 0.75);
-    border: 1px solid rgba(158, 204, 255, 0.2);
-    border-radius: 10px;
-    padding: 10px 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 14px;
     cursor: pointer;
-    transition: border-color .2s, background .2s, transform .2s;
+    transition: all .2s;
     font-size: 13px;
+    font-weight: 500;
+    color: #475569;
     user-select: none;
   }
-  .checkbox-item:hover {
-    border-color: rgba(53, 208, 255, 0.52);
-    background: rgba(11, 37, 60, 0.95);
-    transform: translateY(-1px);
+  .checkbox-item:hover { border-color: #cbd5e1; }
+  .checkbox-item.selected {
+    border-color: var(--accent-purple);
+    background: #f5f5ff;
+    color: var(--accent-purple);
   }
   .checkbox-item input[type="checkbox"],
   .checkbox-item input[type="radio"] {
-    accent-color: var(--accent);
+    accent-color: var(--accent-purple);
     width: 16px;
     height: 16px;
     cursor: pointer;
-    flex-shrink: 0;
   }
-  .checkbox-item input[type="checkbox"]:checked + span,
-  .checkbox-item input[type="radio"]:checked + span { color: #fff; }
-  .checkbox-item span { color: #b4c8de; }
-
   .lang-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-  .form-step { margin-bottom: 30px; }
 
-  .cert-preview-label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #9ecbff;
-    margin-bottom: 12px;
+  .consent-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
   }
-  .cert-card {
-    background: rgba(7, 22, 37, 0.7);
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid rgba(158, 204, 255, 0.25);
-    padding: 0;
-  }
-  .cert-card-photo { display: block; }
-  .cert-preview-image {
-    width: 100%;
-    display: block;
-    border-radius: 14px;
-  }
-
-  .cert-meta-row {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 10px;
-    font-size: 11px;
-    color: #abc4dc;
-  }
-  .cert-meta-row span::before { content: '• '; }
-
   .consent-check {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     font-size: 13px;
-    color: #b8cfe4;
-    margin-bottom: 20px;
+    color: #334155;
     cursor: pointer;
   }
   .consent-check input {
-    accent-color: var(--accent);
     margin-top: 2px;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    cursor: pointer;
+    accent-color: var(--accent-purple);
+    width: 16px; height: 16px;
   }
 
   .btn-submit {
     width: 100%;
-    background: linear-gradient(140deg, #ff844f 0%, var(--accent) 55%, #de4e1d 100%);
+    background: var(--accent-purple);
     color: #fff;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     transition: transform .2s, box-shadow .2s;
@@ -506,39 +378,38 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.35);
   }
-  .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(255, 107, 53, 0.44); }
-  .btn-submit:disabled { opacity: .66; cursor: not-allowed; transform: none; }
-
+  .btn-submit:hover { box-shadow: 0 4px 14px rgba(91, 81, 216, 0.4); }
+  .btn-submit:disabled { opacity: .7; cursor: not-allowed; }
   .submit-disclaimer {
     text-align: center;
     font-size: 11px;
-    color: #9eb4ca;
+    color: #94a3b8;
     margin-top: 12px;
   }
 
   footer {
-    background: rgba(5, 14, 28, 0.86);
-    border-top: 1px solid rgba(158, 204, 255, 0.2);
+    background: var(--hero-bg-deep);
     padding: 24px 20px;
     text-align: center;
-    font-size: 12px;
-    color: #9db4cc;
+    font-size: 11px;
+    color: #94a3b8;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 6px 16px;
+    gap: 12px 24px;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
-  footer a { color: #b9d2e9; text-decoration: none; }
+  footer a { color: #cbd5e1; text-decoration: none; }
   footer a:hover { color: #fff; }
 
+  /* Success Overlay */
   .success-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(5, 12, 24, 0.95);
+    background: rgba(15, 23, 42, 0.95);
     z-index: 999;
     align-items: center;
     justify-content: center;
@@ -555,26 +426,14 @@
     color: #fff;
     margin-bottom: 12px;
   }
-  .success-msg { font-size: 16px; color: #bdd1e5; max-width: 460px; }
+  .success-msg { font-size: 16px; color: #cbd5e1; max-width: 460px; margin-bottom: 24px; }
 
-  @keyframes drift {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(18px, -16px, 0); }
-  }
-
-  @media (max-width: 820px) {
-    .proof-row { grid-template-columns: 1fr; }
-    .phase-tab { padding: 14px 22px; }
-  }
-
-  @media (max-width: 700px) {
-    .form-wrapper { padding: 20px 16px; }
-    .phase-tab { padding: 14px 20px; }
-    .stats-row { gap: 8px; }
-    .stat-box { padding: 12px 16px; }
-    .btn-secondary { display: block; margin: 10px 0 0; }
+  @media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; gap: 16px; }
     .info-row { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
+    .phase-tabs { gap: 30px; justify-content: flex-start; }
+    .hero { padding: 60px 20px 40px; }
+    .hero-title { font-size: 26px; }
   }
 </style>
 </head>
@@ -582,22 +441,18 @@
 
 <!-- TOP BADGES -->
 <div class="top-badges">
-  <span class="badge badge-adobe">Adobe Co-Certified</span>
+  <span class="badge badge-adobe">Co-Certified</span>
   <span class="badge badge-green">Placement Assured</span>
-  <span class="badge badge-purple">2026 Cohort - Limited Seats</span>
+  <span class="badge badge-purple">2026 Cohort — Limited Seats</span>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-brand">Krutanic Solutions Presents</p>
+  <p class="hero-brand">Skill Enhancement Training Presents</p>
   <h1 class="hero-title">
-    <span class="adobe-logo">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425h-3.71zm-8.466 0H2L9.534 2 13 10.238l-7.5 12.386z"/></svg>
-      Adobe
-    </span>
-    Skill Enhancement Training &<br>Internship Program (SETIP 2026)
+    Skill Enhancement Training & <span class="highlight">Internship Program</span><br>(SETIP)
   </h1>
-  <p class="hero-sub">Build practical, job-ready skills with expert mentors, real project work, and industry-recognized certification that helps you stand out in campus and off-campus drives.</p>
+  <p class="hero-sub">A 3-month structured program to bridge academics and the workplace — live projects, industry mentors, certified credentials, and placement support at top MNCs.</p>
   <div class="stats-row">
     <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Month Program</div></div>
     <div class="stat-box"><div class="stat-num">50+</div><div class="stat-lbl">MNC Partners</div></div>
@@ -605,16 +460,16 @@
     <div class="stat-box"><div class="stat-num">20+</div><div class="stat-lbl">Domains</div></div>
   </div>
   <div>
-    <a href="#apply" class="btn-primary">Apply Now - Secure Your Seat</a>
-    <a href="#" class="btn-secondary">Free to apply | Form takes about 2 minutes</a>
+    <a href="#apply" class="btn-primary">Apply Now — Secure Your Seat !</a>
+    <span class="btn-secondary">Free to apply · Takes 2 minutes</span>
   </div>
 </div>
 
 <!-- PHASE TABS -->
 <div class="phase-tabs">
-  <div class="phase-tab active"><span class="phase-num">Month 1</span>Skill Training</div>
-  <div class="phase-tab"><span class="phase-num">Month 2</span>Live Internship</div>
-  <div class="phase-tab"><span class="phase-num">Month 3</span>Placement Support</div>
+  <div class="phase-tab"><span class="phase-num">Month 1</span>Skill Training<br><small style="font-size:10px;color:#64748b">Technical & industry tools</small></div>
+  <div class="phase-tab"><span class="phase-num">Month 2</span>Live Internship<br><small style="font-size:10px;color:#64748b">Real projects with MNC teams</small></div>
+  <div class="phase-tab"><span class="phase-num">Month 3</span>Placement Support<br><small style="font-size:10px;color:#64748b">Resume, interviews & jobs</small></div>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -622,247 +477,201 @@
 
   <!-- ALERT -->
   <div class="alert-banner">
-    Applications are reviewed in priority order. Earlier submissions get faster mentor onboarding and interview scheduling support.
+    <span class="dot"></span> Seats filling fast — limited spots available for 2026. Apply below to reserve yours.
   </div>
 
   <!-- INCLUSIONS -->
-  <p class="section-title">🎯 Everything included in your program</p>
-  <div class="inclusions-grid">
-    <div class="inclusion-card">
-      <div class="inclusion-icon">🎓</div>
-      <div>
-        <div class="inclusion-title">Adobe Co-Logo Certificate</div>
-        <div class="inclusion-desc">Global Adobe branding on your credential</div>
+  <div class="inclusions-wrapper">
+    <h3 class="inclusions-title">🎯 Everything included in your program</h3>
+    <div class="inclusions-grid">
+      <div class="inclusion-card">
+        <div class="inclusion-icon">🎓</div>
+        <div class="inclusion-info">
+          <div class="title">Co-Logo Certificate</div>
+          <div class="desc">Global branding on your credential</div>
+        </div>
       </div>
-    </div>
-    <div class="inclusion-card">
-      <div class="inclusion-icon">📋</div>
-      <div>
-        <div class="inclusion-title">Completion Certificate</div>
-        <div class="inclusion-desc">Recognised by 50+ MNC hiring partners</div>
+      <div class="inclusion-card">
+        <div class="inclusion-icon">📋</div>
+        <div class="inclusion-info">
+          <div class="title">Completion Certificate</div>
+          <div class="desc">Recognised by 50+ MNC hiring partners</div>
+        </div>
       </div>
-    </div>
-    <div class="inclusion-card">
-      <div class="inclusion-icon">✉️</div>
-      <div>
-        <div class="inclusion-title">Letter of Recommendation</div>
-        <div class="inclusion-desc">Performance-based LoR from industry experts</div>
+      <div class="inclusion-card">
+        <div class="inclusion-icon">✉️</div>
+        <div class="inclusion-info">
+          <div class="title">Letter of Recommendation</div>
+          <div class="desc">Performance-based LoR from industry</div>
+        </div>
       </div>
-    </div>
-    <div class="inclusion-card">
-      <div class="inclusion-icon">🧑‍💼</div>
-      <div>
-        <div class="inclusion-title">Dedicated Industry Mentor</div>
-        <div class="inclusion-desc">1-on-1 guidance throughout the program</div>
-      </div>
-    </div>
-    <div class="inclusion-card">
-      <div class="inclusion-icon">💼</div>
-      <div>
-        <div class="inclusion-title">MNC Placement Assistance</div>
-        <div class="inclusion-desc">Resume reviews, mock interviews & referrals</div>
-      </div>
-    </div>
-    <div class="inclusion-card">
-      <div class="inclusion-icon">🛠️</div>
-      <div>
-        <div class="inclusion-title">Industry Tools Access</div>
-        <div class="inclusion-desc">Hands-on training with real workplace tools</div>
-      </div>
-    </div>
-  </div>
-  <div class="fee-note">A small program fee covers your complete 3-month journey, including mentorship, assessments, and certification support.</div>
-
-  <div class="proof-row">
-    <div class="proof-card">
-      <h5>Career-Oriented Curriculum</h5>
-      <p>Structured weekly roadmap designed around current hiring requirements and practical outcomes.</p>
-    </div>
-    <div class="proof-card">
-      <h5>Mentor + Project Guidance</h5>
-      <p>Students receive regular review checkpoints, doubt support, and implementation feedback.</p>
-    </div>
-    <div class="proof-card">
-      <h5>Interview Readiness Support</h5>
-      <p>Resume optimization, mock interview practice, and confidence coaching before placement rounds.</p>
     </div>
   </div>
 
   <!-- ELIGIBILITY + CONTACT -->
-  <br>
   <div class="info-row">
     <div class="info-card">
-      <h4>Eligibility</h4>
+      <h4 class="text-green">ELIGIBILITY</h4>
       <p>Open to students from Business, Technology, Design, or Marketing. All years welcome including graduates.</p>
     </div>
     <div class="info-card">
-      <h4>Contact & Info</h4>
+      <h4 class="text-blue">CONTACT & INFO</h4>
       <p>
-        Dr. Mandeep Singh — Placements Controller<br>
-        📞 <a href="tel:+918105954318">+91 8105954318</a><br>
-        ✉ <a href="mailto:info@krutanic.org">info@krutanic.org</a>
+        <strong>Dr. Mandeep Singh</strong> — Placements Controller<br>
+        <a href="tel:+918105954318">📞 +91 8105954318</a>
       </p>
     </div>
   </div>
 
-  <!-- COMPANY LOGOS -->
-  <div class="logos-section">
-    <div class="logos-heading">Corporate Associations & Partners</div>
-    <img src="krutanic 1.jpeg" alt="Corporate Associations & Partners" class="partners-image">
+  <!-- STEP 1: Personal Details -->
+  <div class="form-step">
+    <div class="step-header">
+      <div class="step-label">STEP 1 — PERSONAL DETAILS</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Full Name <span class="req">*</span></label>
+        <input type="text" class="form-control" placeholder="As per college records" id="fullName">
+      </div>
+      <div class="form-group">
+        <label>Phone Number <span class="req">*</span></label>
+        <input type="tel" class="form-control" placeholder="+91 00000 00000" id="phone">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp Number <span class="req">*</span></label>
+        <input type="tel" class="form-control" placeholder="If same, re-enter" id="whatsapp">
+      </div>
+      <div class="form-group">
+        <label>College Email <span class="req">*</span></label>
+        <input type="email" class="form-control" placeholder="yourname@college.edu" id="collegeEmail">
+      </div>
+      <div class="form-group">
+        <label>Personal Email <span class="req">*</span></label>
+        <input type="email" class="form-control" placeholder="yourname@gmail.com" id="personalEmail">
+      </div>
+      <div class="form-group">
+        <label>State / Region <span class="req">*</span></label>
+        <select class="form-control" id="state">
+          <option value="">— Select your state —</option>
+          <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+          <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option>
+          <option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option>
+          <option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option>
+          <option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option>
+          <option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option>
+          <option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option>
+          <option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option>
+          <option>Uttarakhand</option><option>West Bengal</option>
+          <option>Delhi (NCT)</option>
+          <option>Other / UT</option>
+        </select>
+      </div>
+    </div>
   </div>
 
-  <!-- APPLICATION FORM -->
-  <div class="form-wrapper">
-
-    <!-- STEP 1: Personal Details -->
-    <div class="form-step">
-      <div class="form-step-label">Step 1 — Personal Details</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Full Name <span class="req">*</span></label>
-          <input type="text" class="form-control" placeholder="Enter your full name" id="fullName">
-        </div>
-        <div class="form-group">
-          <label>Phone Number <span class="req">*</span></label>
-          <input type="tel" class="form-control" placeholder="+91 10000 00000" id="phone">
-        </div>
-        <div class="form-group">
-          <label>WhatsApp Number <span class="req">*</span></label>
-          <input type="tel" class="form-control" placeholder="Same as above" id="whatsapp">
-        </div>
-        <div class="form-group">
-          <label>College Email <span class="req">*</span></label>
-          <input type="email" class="form-control" placeholder="you@college.edu" id="collegeEmail">
-        </div>
+  <!-- STEP 2: Academic Background -->
+  <div class="form-step">
+    <div class="step-header">
+      <div class="step-label">STEP 2 — ACADEMIC BACKGROUND</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>College Name <span class="req">*</span></label>
+        <input type="text" class="form-control" placeholder="Full official college name" id="collegeName">
       </div>
-      <div class="form-grid" style="margin-top:14px;">
-        <div class="form-group">
-          <label>Personal Email <span class="req">*</span></label>
-          <input type="email" class="form-control" placeholder="you@gmail.com" id="personalEmail">
-        </div>
-        <div class="form-group">
-          <label>State / Region <span class="req">*</span></label>
-          <select class="form-control" id="state">
-            <option value="">— Select your state —</option>
-            <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
-            <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option>
-            <option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option>
-            <option selected>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option>
-            <option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option>
-            <option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option>
-            <option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option>
-            <option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option>
-            <option>Uttarakhand</option><option>West Bengal</option>
-            <option>Andaman & Nicobar Islands</option><option>Chandigarh</option><option>Delhi (NCT)</option>
-            <option>Jammu & Kashmir</option><option>Ladakh</option><option>Puducherry</option>
-            <option>Other country</option>
-          </select>
-        </div>
+      <div class="form-group">
+        <label>Branch / Stream <span class="req">*</span></label>
+        <input type="text" class="form-control" placeholder="e.g. Computer Science, MBA" id="branch">
+      </div>
+      <div class="form-group">
+        <label>Year of Study <span class="req">*</span></label>
+        <select class="form-control" id="year">
+          <option value="">— Select year —</option>
+          <option>1st Year</option><option>2nd Year</option><option>3rd Year</option>
+          <option>4th Year</option><option>Final Semester</option><option>Graduated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Class Representative Contact</label>
+        <input type="text" class="form-control" placeholder="CR phone (optional)" id="crContact">
       </div>
     </div>
+  </div>
 
-    <!-- STEP 2: Academic Background -->
-    <div class="form-step">
-      <div class="form-step-label">Step 2 — Academic Background</div>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>College Name <span class="req">*</span></label>
-          <input type="text" class="form-control" placeholder="Tell official college name" id="collegeName">
-        </div>
-        <div class="form-group">
-          <label>Branch / Stream <span class="req">*</span></label>
-          <input type="text" class="form-control" placeholder="e.g. Computer Science, MBA" id="branch">
-        </div>
-        <div class="form-group">
-          <label>Year of Study <span class="req">*</span></label>
-          <select class="form-control" id="year">
-            <option value="">— Select year —</option>
-            <option>1st Year</option><option>2nd Year</option><option>3rd Year</option>
-            <option>4th Year</option><option>Final Semester</option><option>Graduated</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Class Representative Contact</label>
-          <input type="text" class="form-control" placeholder="CR phone (optional)" id="crContact">
-        </div>
-      </div>
+  <!-- STEP 3: Your Interests -->
+  <div class="form-step">
+    <div class="step-header">
+      <div class="step-label">STEP 3 — YOUR INTERESTS</div>
+      <div class="step-line"></div>
+    </div>
+    
+    <div class="form-group">
+      <label>Domain to upskill in <span class="req">*</span></label>
+      <small style="color:var(--text-muted);font-size:11px;margin-top:-2px">Select all that apply</small>
+    </div>
+    <div class="checkbox-grid" id="domainGrid">
+      <label class="checkbox-item"><input type="radio" name="domain" value="Android App Development"><span>Android App Development</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Full Stack Web Development"><span>Full Stack Web Development</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Data Science"><span>Data Science</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Data Analytics"><span>Data Analytics</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Machine Learning"><span>Machine Learning</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Artificial Intelligence"><span>Artificial Intelligence</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Cyber Security"><span>Cyber Security</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="IoT / Robotics"><span>IoT / Robotics</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Cloud Computing"><span>Cloud Computing</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Graphic Design"><span>Graphic Design</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="AutoCAD"><span>AutoCAD</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="UI/UX Design"><span>UI/UX Design</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Embedded Systems"><span>Embedded Systems</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Digital Marketing"><span>Digital Marketing</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Finance"><span>Finance</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Stock Market"><span>Stock Market</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Human Resource"><span>Human Resource</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="Business Analytics"><span>Business Analytics</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="DevOps"><span>DevOps</span></label>
+      <label class="checkbox-item"><input type="radio" name="domain" value="VLSI"><span>VLSI</span></label>
     </div>
 
-    <!-- STEP 3: Your Interests -->
-    <div class="form-step">
-      <div class="form-step-label">Step 3 — Your Interests</div>
-      <div class="form-group" style="margin-bottom:12px;">
-        <label>Domain to upskill in <span class="req">*</span></label>
-        <small style="color:var(--muted);font-size:11px;">Select one option</small>
-      </div>
-      <div class="checkbox-grid" id="domainGrid">
-        <label class="checkbox-item"><input type="radio" name="domain" value="Android App Development"><span>Android App Development</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Full Stack Web Development"><span>Full Stack Web Development</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Data Science"><span>Data Science</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Data Analytics"><span>Data Analytics</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Machine Learning"><span>Machine Learning</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Artificial Intelligence"><span>Artificial Intelligence</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Cyber Security"><span>Cyber Security</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="IoT / Robotics"><span>IoT / Robotics</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Cloud Computing"><span>Cloud Computing</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Graphic Design"><span>Graphic Design</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="AutoCAD"><span>AutoCAD</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="UI/UX Design"><span>UI/UX Design</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Embedded Systems"><span>Embedded Systems</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Digital Marketing"><span>Digital Marketing</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Finance"><span>Finance</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Stock Market"><span>Stock Market</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Human Resource"><span>Human Resource</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="Business Analytics"><span>Business Analytics</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="DevOps"><span>DevOps</span></label>
-        <label class="checkbox-item"><input type="radio" name="domain" value="VLSI"><span>VLSI</span></label>
-      </div>
-
-      <div class="form-group" style="margin-top:20px; margin-bottom:12px;">
-        <label>Preferred language <span class="req">*</span></label>
-        <small style="color:var(--muted);font-size:11px;">Select all that apply</small>
-      </div>
-      <div class="checkbox-grid lang-grid">
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="English"><span>English</span></label>
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="Hindi"><span>Hindi</span></label>
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="Kannada"><span>Kannada</span></label>
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="Tamil"><span>Tamil</span></label>
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="Telugu"><span>Telugu</span></label>
-        <label class="checkbox-item"><input type="checkbox" name="lang" value="Marathi"><span>Marathi</span></label>
-      </div>
+    <div class="form-group" style="margin-top:24px;">
+      <label>Preferred language(s) <span class="req">*</span></label>
+      <small style="color:var(--text-muted);font-size:11px;margin-top:-2px">Select at least one</small>
     </div>
-
-    <!-- SAMPLE CERTIFICATE -->
-    <div class="form-step">
-      <div class="cert-preview-label">Sample Certificate</div>
-      <div class="cert-card cert-card-photo">
-        <img src="krutanic certificate.jpeg" alt="Sample Internship Certificate" class="cert-preview-image">
-      </div>
+    <div class="checkbox-grid lang-grid">
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="English"><span>English</span></label>
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="Hindi"><span>Hindi</span></label>
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="Kannada"><span>Kannada</span></label>
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="Tamil"><span>Tamil</span></label>
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="Telugu"><span>Telugu</span></label>
+      <label class="checkbox-item"><input type="checkbox" name="lang" value="Marathi"><span>Marathi</span></label>
     </div>
+  </div>
 
-    <!-- STEP 4: Submit -->
-    <div class="form-step">
-      <div class="form-step-label">Step 4 — Submit</div>
+  <!-- STEP 4: Submit -->
+  <div class="form-step" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+    <div class="step-header">
+      <div class="step-label">STEP 4 — SUBMIT</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="consent-box">
       <label class="consent-check">
         <input type="checkbox" id="consent">
-        I confirm all details are accurate and understand that a nominal program fee applies for SETIP 2026.
+        <span>I confirm all details are accurate and understand that a nominal program fee applies for SETIP 2026.</span>
       </label>
-      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">
-        Submit Application - Secure My Seat
-      </button>
-      <p class="submit-disclaimer">By submitting, you agree to be contacted by Krutanic Solutions via WhatsApp and email.</p>
     </div>
+    <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">
+      🚀 Submit Application — Secure My Seat
+    </button>
+    <p class="submit-disclaimer">By submitting you agree to be contacted via WhatsApp & email.</p>
+  </div>
 
-  </div><!-- /form-wrapper -->
 </div><!-- /section -->
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Krutanic Solutions</span>
-  <a href="mailto:info@krutanic.org">info@krutanic.org</a>
+  <span>© 2026 SETIP 2026</span>
   <a href="tel:+918105954318">+91 8105954318</a>
-  <a href="http://www.krutanic.com">www.krutanic.com</a>
-  <span>Dr. Mandeep Singh — Placements Controller</span>
 </footer>
 
 <!-- SUCCESS OVERLAY -->
@@ -870,20 +679,11 @@
   <div class="success-icon">🎉</div>
   <div class="success-title">Application Submitted!</div>
   <p class="success-msg">Thank you for applying. Our team will reach out on WhatsApp within 24 hours with the next onboarding steps.</p>
-  <br><br>
   <button class="btn-primary" onclick="document.getElementById('successOverlay').classList.remove('show')">Back to Page</button>
 </div>
 
 <script>
   const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxWCN3wcZ2MF7v03bbgM6gf95T6bkn4NvgPu2Gvoe-S3X7Ctl_6LyBF_M-UqQOeAYJh/exec';
-
-  // Phase tab switching
-  document.querySelectorAll('.phase-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    });
-  });
 
   async function handleSubmit() {
     const required = [
@@ -902,9 +702,8 @@
       const el = document.getElementById(f.id);
       if (!el.value.trim()) {
         el.focus();
-        el.style.borderColor = '#e8423f';
-        setTimeout(() => el.style.borderColor = '', 2000);
-        alert(`Please fill in: ${f.label}`);
+        el.style.borderColor = '#ea0a0a';
+        setTimeout(() => el.style.borderColor = '#cbd5e1', 2000);
         return;
       }
     }
@@ -917,11 +716,6 @@
 
     if (!document.getElementById('consent').checked) {
       alert('Please confirm the consent checkbox before submitting.');
-      return;
-    }
-
-    if (!APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) {
-      alert('Please add your Google Apps Script Web App URL in APPS_SCRIPT_WEB_APP_URL before submitting.');
       return;
     }
 
@@ -951,9 +745,7 @@
       await fetch(APPS_SCRIPT_WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
       });
 
@@ -962,31 +754,26 @@
       alert(error.message || 'Submission failed. Please try again.');
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Submit Application - Secure My Seat';
+      btn.textContent = '🚀 Submit Application — Secure My Seat';
     }
   }
 
   // Highlight selected option cards for both checkbox/radio inputs
   document.querySelectorAll('.checkbox-item input').forEach(input => {
+    // initialize state
+    if (input.checked) input.closest('.checkbox-item').classList.add('selected');
+
     input.addEventListener('change', function() {
       if (this.type === 'radio') {
         document.querySelectorAll(`.checkbox-item input[name="${this.name}"]`).forEach(groupInput => {
-          const groupItem = groupInput.closest('.checkbox-item');
-          groupItem.style.borderColor = '';
-          groupItem.style.background = '';
-          groupItem.querySelector('span').style.color = '';
+          groupInput.closest('.checkbox-item').classList.remove('selected');
         });
       }
-
-      const item = this.closest('.checkbox-item');
+      
       if (this.checked) {
-        item.style.borderColor = 'rgba(255,107,53,.75)';
-        item.style.background = 'rgba(255,107,53,.16)';
-        item.querySelector('span').style.color = '#fff';
+        this.closest('.checkbox-item').classList.add('selected');
       } else {
-        item.style.borderColor = '';
-        item.style.background = '';
-        item.querySelector('span').style.color = '';
+        this.closest('.checkbox-item').classList.remove('selected');
       }
     });
   });
