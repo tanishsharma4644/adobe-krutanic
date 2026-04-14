@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxV8SUpbEi7UcveKyw5onvGiHVQpJbjwHM_AHc3cFXtDnczh0fTsltCfoXaX9dt7fcM/exec';
+const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbwUiU2n2t9y-QffVhi470V8F9UrUdgz0Swp-X5O4j_-uI72tHrYd_kznNQS6D2zwUfsrg/exec';
 
 const STATE_LIST = [
   'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
