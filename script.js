@@ -22,9 +22,21 @@ let submitting = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   const stateSelect = document.getElementById('state');
+  const otherCountryInput = document.getElementById('otherCountry');
   if (stateSelect) {
     STATE_LIST.forEach(st => {
       stateSelect.innerHTML += `<option value="${st}">${st}</option>`;
+    });
+    
+    stateSelect.addEventListener('change', function() {
+      if (this.value === 'Other country') {
+        if (otherCountryInput) otherCountryInput.style.display = 'block';
+      } else {
+        if (otherCountryInput) {
+          otherCountryInput.style.display = 'none';
+          otherCountryInput.value = '';
+        }
+      }
     });
   }
 
@@ -74,13 +86,18 @@ function getFormData() {
   const domainInput = document.querySelector('input[name="domain"]:checked');
   const consentInput = document.getElementById('consent');
   
+  let stateVal = getVal('state');
+  if (stateVal === 'Other country') {
+    stateVal = getVal('otherCountry');
+  }
+  
   return {
     fullName: getVal('fullName'),
     phone: getVal('phone'),
     whatsapp: getVal('whatsapp'),
     collegeEmail: getVal('collegeEmail'),
     personalEmail: getVal('personalEmail'),
-    state: getVal('state'),
+    state: stateVal,
     college: getVal('college'),
     branch: getVal('branch'),
     year: getVal('year'),
@@ -100,7 +117,10 @@ function validateAll() {
   if (!data.whatsapp) return failStep('WhatsApp number');
   if (!data.collegeEmail) return failStep('college email');
   if (!data.personalEmail) return failStep('personal email');
-  if (!data.state) return failStep('state');
+  if (!data.state) {
+    const rawState = document.getElementById('state') ? document.getElementById('state').value : '';
+    return failStep(rawState === 'Other country' ? 'country name' : 'state');
+  }
   if (!data.college) return failStep('college name');
   if (!data.branch) return failStep('branch / stream');
   if (!data.year) return failStep('year of study');
