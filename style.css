@@ -555,7 +555,7 @@ body {
 }
 
 .consent-text {
-  font-size: 13.5px;
+  font-size: 11.5px;
   color: #4e5572;
   line-height: 1.5;
 }
@@ -699,7 +699,7 @@ body {
   .hero-main-title {
     font-size: 24px;
   }
-  
+
   .hero-subtitle {
     font-size: 13px;
     padding: 0 10px;
@@ -724,22 +724,27 @@ body {
     flex-wrap: wrap;
     gap: 16px;
   }
+
   .dark-image-card {
     flex: 1 1 100%;
     max-width: 100%;
     padding: 6px;
   }
+
   .img-caption {
     font-size: 11px;
     margin-top: 8px;
   }
+
   .hero-main-title {
     font-size: 22px;
   }
+
   .alert-box {
     font-size: 12px;
     padding: 12px;
   }
+
   .btn-submit {
     padding: 16px;
     font-size: 14px;
